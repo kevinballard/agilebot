@@ -2,12 +2,16 @@
 """
 
 from cStringIO import StringIO
+import os
 
 from mako.template import Template
 from pyPdf import PdfFileWriter, PdfFileReader
 from xhtml2pdf import pisa
 
-_TEMPLATE_PATH = 'card_template.html'
+_TEMPLATE_NAME = 'card_template.html'
+_TEMPLATE_PATH = os.path.join(
+    os.path.dirname(os.path.realpath(__file__)),
+    _TEMPLATE_NAME)
 _TEMPLATE = Template(filename=_TEMPLATE_PATH)
 
 def render_card_html(card_info):
