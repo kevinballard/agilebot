@@ -38,11 +38,11 @@ class PrintQueue(object):
       bytes - Bytes to send to the printer as a job (e.g. a PDF).
     """
     file = tempfile.NamedTemporaryFile(prefix='_agile_bot', delete=False)
-    file.write(ps_data)
+    file.write(bytes)
     file.close()
 
     now = int(time.time())
-    conn.printFile(
+    self.conn.printFile(
         self.printer,
         file.name,
         'agile_bot_%s' % now,

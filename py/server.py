@@ -11,7 +11,7 @@ import render
 app = Flask(__name__)
 
 @app.route('/render')
-def render():
+def render_card():
   """Render a Card.
 
   GET Params:
@@ -32,7 +32,7 @@ def render():
   return response
 
 @app.route('/rendermulti', methods=['GET', 'POST'])
-def render_multi():
+def render_multiple_cards():
   """Render multiple Cards.
 
   POST Document:

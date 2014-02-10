@@ -1,11 +1,6 @@
 """Utilities for specifying and rendering Cards as PDF bytes.
 """
 
-from mako.template import Template
-
-_TEMPLATE_PATH = 'card_template.html'
-_TEMPLATE = Template(filename=_TEMPLATE_PATH)
-
 _DEFAULT_NAME = 'John Doe'
 _DEFAULT_TASKID = '0'
 _DEFAULT_HOURS = '0'

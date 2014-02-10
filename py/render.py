@@ -3,8 +3,12 @@
 
 from cStringIO import StringIO
 
+from mako.template import Template
 from pyPdf import PdfFileWriter, PdfFileReader
 from xhtml2pdf import pisa
+
+_TEMPLATE_PATH = 'card_template.html'
+_TEMPLATE = Template(filename=_TEMPLATE_PATH)
 
 def render_card_html(card_info):
   """Convert a single CardInfo into an HTML document.
@@ -32,7 +36,7 @@ def render_card_pdf(card_info):
     Byte string of the rendered PDF.
   """
   stream = StringIO()
-  pisa.CreatePDF(_MakeHtml(card_info), stream)
+  pisa.CreatePDF(render_card_html(card_info), stream)
   return stream.getvalue()
 
 def render_multiple_cards_pdf(card_infos):
@@ -47,7 +51,7 @@ def render_multiple_cards_pdf(card_infos):
   pdf_writer = PdfFileWriter()
 
   for card_info in card_infos:
-    card_pdf = RenderCard(card_info)
+    card_pdf = render_card_pdf(card_info)
     pdf_writer.addPage(PdfFileReader(StringIO(card_pdf)).getPage(0))
 
   all_bytes = StringIO()
