@@ -1,12 +1,13 @@
 """Script to convert a JIRA XML query into agilebot JSON format.
 """
 
+import requests
 import json
 from xml.etree import ElementTree
 
 from commandr import command, Run
 
-_AGILEBOT_HOST = 'http://192.168.1.8/'
+_AGILEBOT_HOST = 'http://192.168.128.74/'
 
 @command('convert')
 def ConvertXmlFileToJson(xml_path):
