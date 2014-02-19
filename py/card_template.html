@@ -2,20 +2,20 @@
 <head>
   <style>
     @page {
-      size: 62mm 120mm landscape;
+      size: ${width}mm 120mm landscape;
       margin: 1mm;
       border: 1px solid black;
       @frame {
         left: 1;
         top: 1;
         width: 118mm;
-        height: 60mm;
+        height: ${width}mm;
       }
     }
   </style>
   <style>
     body {
-      font-size: 16pt;
+      font-size: 14pt;
     }
     table {
       border: 2px solid black;
@@ -37,7 +37,7 @@
 <table style="width: 118mm;">
   <tr style="height: 15mm">
     <td style="width: 30mm">${name}</td>
-    <td style="width: 30mm">#${taskid}</td>
+    <td style="width: 30mm">${taskid}</td>
     <td style="width: 30mm">${hours} ${risk}</td>
     <td style="width: 30mm"></td>
   </tr>

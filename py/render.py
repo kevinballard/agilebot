@@ -14,6 +14,8 @@ _TEMPLATE_PATH = os.path.join(
     _TEMPLATE_NAME)
 _TEMPLATE = Template(filename=_TEMPLATE_PATH)
 
+_MEDIA_WIDTH = '50'
+
 def render_card_html(card_info):
   """Convert a single CardInfo into an HTML document.
 
@@ -24,6 +26,7 @@ def render_card_html(card_info):
     HTML document string.
   """
   return _TEMPLATE.render(**{
+      'width': _MEDIA_WIDTH,
       'name': card_info.name,
       'taskid': card_info.taskid,
       'hours': card_info.hours,

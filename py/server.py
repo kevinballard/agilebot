@@ -55,7 +55,7 @@ def render_multiple_cards():
   response.headers['Content-Type'] = 'application/pdf'
   return response
 
-@app.route('/print')
+@app.route('/print', methods=['POST'])
 def print_card():
   """Print a Card.
 
@@ -74,12 +74,12 @@ def print_card():
   really = bool(request.args.get('really', False))
   if really:
     print_queue.send_to_print_queue(pdf)
-    return "Added to queue"
+    return "Added to queue\n"
 
   else:
-    return "Ok, but not queued (use 'really' param)"
+    return "Ok, but not queued (use 'really' param)\n"
 
-@app.route('/printmulti', methods=['GET', 'POST'])
+@app.route('/printmulti', methods=['POST'])
 def print_multiple_cards():
   """Print multiple cards.
 
@@ -104,10 +104,10 @@ def print_multiple_cards():
   really = bool(request.args.get('really', False))
   if really:
     print_queue.send_to_print_queue(pdf)
-    return "Added to queue"
+    return "Added to queue\n"
 
   else:
-    return "Ok, but not queued (use 'really' param)"
+    return "Ok, but not queued (use 'really' param)\n"
 
 if __name__ == '__main__':
   print_queue.initialize_queue()

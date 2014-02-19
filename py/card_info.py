@@ -2,10 +2,10 @@
 """
 
 _DEFAULT_NAME = 'John Doe'
-_DEFAULT_TASKID = '0'
+_DEFAULT_TASKID = 'TA-0'
 _DEFAULT_HOURS = '0'
-_DEFAULT_RISK = 'N'
-_DEFAULT_DESCRIPTION = '[...]'
+_DEFAULT_RISK = ''
+_DEFAULT_DESCRIPTION = 'Figure out how to set the description.'
 
 class CardInfo(object):
   __slots__ = ['name', 'taskid', 'hours', 'risk', 'description']
