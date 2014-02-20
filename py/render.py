@@ -57,7 +57,7 @@ def render_multiple_cards_pdf(card_infos):
   """
   pdf_writer = PdfFileWriter()
 
-  for card_info in card_infos:
+  for card_info in sorted(card_infos, key=lambda e: e.name):
     card_pdf = render_card_pdf(card_info)
     pdf_writer.addPage(PdfFileReader(StringIO(card_pdf)).getPage(0))
 
